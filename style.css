@@ -1,0 +1,161 @@
+:root {
+    --bg-light: #f3f4f6;
+    --panel-bg: #ffffff;
+    --text-dark: #1e293b;
+    --stroke-dark: #1e293b;
+    --pop-blue: #00f0ff;
+    --pop-red: #ff477e;
+    --pop-yellow: #ffb703;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.todo-container {
+    background-color: var(--panel-bg);
+    padding: 35px 25px;
+    border-radius: 24px;
+    border: 3px solid var(--stroke-dark);
+    box-shadow: 6px 6px 0px var(--stroke-dark);
+    max-width: 450px;
+    width: 100%;
+}
+
+.todo-header h1 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.todo-header p {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+/* Kotak Input Area */
+.todo-input-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.todo-input-box input {
+    flex: 1;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid var(--stroke-dark);
+    border-radius: 12px;
+    outline: none;
+    background-color: #fafafa;
+}
+
+.todo-input-box input:focus {
+    background-color: #ffffff;
+    border-color: var(--pop-blue);
+}
+
+/* Tombol Tambah Pop Art */
+.btn-pop {
+    background-color: var(--pop-blue);
+    color: var(--text-dark);
+    border: 2px solid var(--stroke-dark);
+    padding: 0 20px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px var(--stroke-dark);
+    transition: all 0.1s ease;
+}
+
+.btn-pop:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0px var(--stroke-dark);
+}
+
+.btn-pop:active {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0px var(--stroke-dark);
+}
+
+/* List Ul/Li Tugas */
+.todo-list {
+    list-style: none;
+    text-align: left;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px;
+    background-color: #f8fafc;
+    border: 2px solid var(--stroke-dark);
+    border-radius: 14px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0px var(--stroke-dark);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    animation: popIn 0.2s ease-out;
+}
+
+.todo-item:hover {
+    background-color: #f1f5f9;
+}
+
+.todo-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    flex: 1;
+    padding-right: 15px;
+    transition: all 0.2s ease;
+}
+
+/* --- STATE DONE / SELESAI (Disuntik via JS) --- */
+.todo-item.done {
+    background-color: #e2e8f0;
+    opacity: 0.6;
+}
+
+.todo-item.done .todo-text {
+    text-decoration: line-through; /* Coret teks */
+    color: #64748b;
+}
+
+/* Tombol Sampah Mini */
+.btn-hapus {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 2px;
+    transition: transform 0.1s;
+}
+
+.btn-hapus:hover {
+    transform: scale(1.2);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
